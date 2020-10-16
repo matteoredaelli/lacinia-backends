@@ -1,20 +1,20 @@
 (ns matteoredaelli.lacinia-backends
-  (:require [io.pedestal.http :as http]
-            [matteoredaelli.lacinia-backends-ldap.schema :as ldapschema]
-            [com.walmartlabs.lacinia.pedestal2 :as lp]
-            [com.walmartlabs.lacinia.schema :as schema]))
+  (:require [matteoredaelli.lacinia-backends.system :as system]
+            [com.stuartsierra.component :as component]
+            ))
 
-;; Use default options:
-(def service (lp/default-service (ldapschema/schema) nil))
 
-;; This is an adapted service map, that can be started and stopped
-;; From the REPL you can call server/start and server/stop on this service
-(defonce runnable-service (http/create-server service))
+(defn ^:private my-system
+  "Creates a new system suitable for testing, and ensures that
+  the HTTP port won't conflict with a default running system."
+  []
+  (-> (system/new-system)
+      (assoc-in [:server :port] 8989)))
+
+(def ^:dynamic ^:private *system*)
 
 (defn -main
   "The entry-point for 'lein run'"
   [& args]
   (println "\nCreating your server...")
-  (-> service
-      http/create-server
-      http/start))
+  (binding [*system* (component/start-system (my-system))]))

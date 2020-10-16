@@ -1,0 +1,114 @@
+{
+ :objects {
+           :QliksenseApp {
+                           :fields {:id {:type String}
+                                    :name {:type String}
+                                    :schemaPath {:type String}
+                                    :tags {:type (list String)}
+                                    :modifiedDate {:type String}
+                                    :createdDate {:type String}
+                                    :modifiedByUserName {:type String}
+                                    :owner {:type :QliksenseUser}
+                                    :stream {:type :QliksenseStream}
+                                    :customProperties {:type (list :QliksenseCustomPropertyValue)}
+                                    :published {:type Boolean}
+                                    }
+                          }
+            :QliksenseReloadTask {
+                                  :fields {:id {:type String}
+                                           :name {:type String}
+                                           :schemaPath {:type String}
+                                           :taskType {:type Int}
+                                           :tags {:type (list String)}
+                                           :modifiedDate {:type String}
+                                           :createdDate {:type String}
+                                           :modifiedByUserName {:type String}
+                                           :app {:type :QliksenseApp}
+                                           :customProperties {:type (list :QliksenseCustomPropertyValue)}
+                                           :enabled {:type Boolean}
+                                           }
+                                  }
+           :QliksenseStream {
+                              :fields {:id {:type String}
+                                       :name {:type String}
+                                       :schemaPath {:type String}
+                                       :tags {:type (list String)}
+                                       :modifiedDate {:type String}
+                                       :createdDate {:type String}
+                                       :modifiedByUserName {:type String}
+                                       :owner {:type :QliksenseUser}
+                                       :customProperties {:type (list :QliksenseCustomPropertyValue)}
+                                       }
+                              }
+           :QliksenseCustomPropertyDefinition {
+                                                  :fields {:id {:type String}
+                                                           :name {:type String}
+                                                           :schemaPath {:type String}
+                                                           :objectTypes {:type (list String)}
+                                                           :modifiedDate {:type String}
+                                                           :createdDate {:type String}
+                                                           :owner {:type :QliksenseUser}
+                                                           :modifiedByUserName {:type String}
+                                                           :choiceValues {:type (list String)}
+                                                           }
+                                                  }
+           :QliksenseCustomPropertyValue {
+                                             :fields {:id {:type String}
+                                                      :value {:type String}
+                                                      :schemaPath {:type String}
+                                                      :modifiedDate {:type String}
+                                                      :createdDate {:type String}
+                                                      :modifiedByUserName {:type String}
+                                                      :definition {:type :QliksenseCustomPropertyDefinition}
+                                                      }
+                                             }
+           :QliksenseUser {
+                            :fields {:id {:type String}
+                                     :name {:type String}
+                                     :userId {:type String}
+                                     :userDirectory {:type String}
+                                     :schemaPath {:type String}
+                                     :attributes {:type (list :QliksenseUserAttribute)}
+                                     :customProperties {:type (list :QliksenseCustomPropertyValue)}
+                                     :modifiedDate {:type String}
+                                     :createdDate {:type String}
+                                     :modifiedByUserName {:type String}
+                                     :removedExternally {:type Boolean}
+                                     :inactive {:type Boolean}
+                                     }
+                            }
+           :QliksenseUserAttribute {
+                                      :fields {:id {:type String}
+                                               :externalId {:type String}
+                                               :schemaPath {:type String}
+                                               :attributeType {:type String}
+                                               :attributeValue{:type String}
+                                               :modifiedDate {:type String}
+                                               :createdDate {:type String}
+                                               :modifiedByUserName {:type String}
+                                               }
+                                      }
+           }
+ :queries {:qliksense_custom_property_definitions {:type (list :QliksenseCustomPropertyDefinition)
+                                                   :args {:system {:type String}
+                                                          :filter {:type String}}
+                                                   :resolve :query/qliksense-custom-property-definitions}
+           :qliksense_apps {:type (list :QliksenseApp)
+                            :args {:system {:type String}
+                                   :filter {:type String}}
+                            :resolve :query/qliksense-apps}
+           :qliksense_reload_tasks {:type (list :QliksenseReloadTask)
+                                    :args {:system {:type String}
+                                           :filter {:type String}}
+                                    :resolve :query/qliksense-reload-tasks}
+           :qliksense_streams {:type (list :QliksenseStream)
+                               :args {:system {:type String}
+                                      :filter {:type String}}
+                               :resolve :query/qliksense-streams}
+           :qliksense_users {:type (list :QliksenseUser)
+                             :args {:system {:type String}
+                                    :filter {:type String}}
+                             :resolve :query/qliksense-users}
+
+           }
+ }

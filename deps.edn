@@ -2,8 +2,10 @@
  :deps {org.clojure/clojure {:mvn/version "1.10.1"}
         com.walmartlabs/lacinia  {:mvn/version "0.38.0-alpha-3"}
         com.walmartlabs/lacinia-pedestal  {:mvn/version "0.15.0-alpha-2"}
-        ;;matteoredaelli/lacinia-backends-ldap {:local/root "../lacinia-backends-ldap"}
-        matteoredaelli/lacinia-backends-ldap {:mvn/version "0.1.0-SNAPSHOT"}
+        com.stuartsierra/component {:mvn/version "0.3.2"}
+        io.aviso/logging {:mvn/version "0.3.1"}
+        org.clojars.pntblnk/clj-ldap {:mvn/version "0.0.16"}
+        matteoredaelli/qliksense {:mvn/version "0.3.0"}
         }
  :aliases
  {:test {:extra-paths ["test"]
