@@ -6,6 +6,9 @@
         io.aviso/logging {:mvn/version "0.3.1"}
         org.clojars.pntblnk/clj-ldap {:mvn/version "0.0.16"}
         matteoredaelli/qliksense {:mvn/version "0.3.0"}
+        matteoredaelli/lacinia-backend-qliksense {:mvn/version "0.3.0-SNAPSHOT"}
+        matteoredaelli/lacinia-backend-ldap {:mvn/version "0.3.0-SNAPSHOT"}
+
         }
  :aliases
  {:test {:extra-paths ["test"]

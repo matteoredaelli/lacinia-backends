@@ -3,8 +3,8 @@
    [com.stuartsierra.component :as component]
    [matteoredaelli.lacinia-backends.server :as server]
    [matteoredaelli.lacinia-backends.schema :as schema]
-   [matteoredaelli.lacinia-backends.ldap.backend      :as ldap-backend]
-   [matteoredaelli.lacinia-backends.qliksense.backend :as qliksense-backend]
+   [matteoredaelli.lacinia-backend-ldap.backend      :as ldap-backend]
+   [matteoredaelli.lacinia-backend-qliksense.backend :as qliksense-backend]
 ))
 
 (defn new-system

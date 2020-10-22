@@ -6,8 +6,8 @@
     [com.walmartlabs.lacinia.util :as util]
     [com.walmartlabs.lacinia.resolve :as resolve]
     [com.stuartsierra.component :as component]
-    [matteoredaelli.lacinia-backends.ldap.schema :as ldap-schema]
-    [matteoredaelli.lacinia-backends.qliksense.schema :as qliksense-schema]))
+    [matteoredaelli.lacinia-backend-ldap.schema :as ldap-schema]
+    [matteoredaelli.lacinia-backend-qliksense.schema :as qliksense-schema]))
 
 (defn load-schema
   [component]
