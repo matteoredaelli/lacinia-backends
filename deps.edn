@@ -4,11 +4,18 @@
         com.walmartlabs/lacinia-pedestal  {:mvn/version "0.15.0-alpha-2"}
         com.stuartsierra/component {:mvn/version "0.3.2"}
         io.aviso/logging {:mvn/version "0.3.1"}
-        org.clojars.pntblnk/clj-ldap {:mvn/version "0.0.16"}
-        matteoredaelli/qliksense {:mvn/version "0.3.0"}
-        matteoredaelli/lacinia-backend-qliksense {:mvn/version "0.3.0-SNAPSHOT"}
+        ;; backend AWS
+        matteoredaelli/lacinia-backend-aws {:mvn/version "0.3.0-SNAPSHOT"}
+        com.cognitect.aws/api       {:mvn/version "0.8.474"}
+        com.cognitect.aws/endpoints {:mvn/version "1.1.11.842"}
+        com.cognitect.aws/s3        {:mvn/version "809.2.734.0"}
+        com.cognitect.aws/ec2       {:mvn/version "809.2.734.0"}
+        ;; backend LDAP
         matteoredaelli/lacinia-backend-ldap {:mvn/version "0.3.0-SNAPSHOT"}
-
+        org.clojars.pntblnk/clj-ldap {:mvn/version "0.0.16"}
+        ;; backend QLIKSENSE
+        matteoredaelli/lacinia-backend-qliksense {:mvn/version "0.3.0-SNAPSHOT"}
+        matteoredaelli/qliksense {:mvn/version "0.3.0"}
         }
  :aliases
  {:test {:extra-paths ["test"]

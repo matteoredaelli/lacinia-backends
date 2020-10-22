@@ -6,16 +6,22 @@
     [com.walmartlabs.lacinia.util :as util]
     [com.walmartlabs.lacinia.resolve :as resolve]
     [com.stuartsierra.component :as component]
+    [matteoredaelli.lacinia-backend-aws.schema :as aws-schema]
     [matteoredaelli.lacinia-backend-ldap.schema :as ldap-schema]
     [matteoredaelli.lacinia-backend-qliksense.schema :as qliksense-schema]))
 
 (defn load-schema
   [component]
-  (let [ldap-schema (ldap-schema/get-schema component)
+  (let [aws-schema (aws-schema/get-schema component)
+        ldap-schema (ldap-schema/get-schema component)
         qliksense-schema (qliksense-schema/get-schema component)
-        schema (merge-with into ldap-schema qliksense-schema)]
+        schema (merge-with into
+                           aws-schema
+                           ldap-schema
+                           qliksense-schema)]
     (-> schema
-        (util/attach-resolvers (merge (ldap-schema/resolver-map component)
+        (util/attach-resolvers (merge (aws-schema/resolver-map component)
+                                      (ldap-schema/resolver-map component)
                                       (qliksense-schema/resolver-map component)
                                       ))
         schema/compile)))
